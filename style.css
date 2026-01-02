@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffd3;
+  color: #977ab0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #ecd6ff;
+  padding: 40px;
+  text-align: center;
+}
+
+footer {
+  background-color: #dbffb0;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* ===== 九宮格 ===== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三欄 */
+  gap: 20px;
+  padding: 40px;
+}
+
+/* ===== 單個作品格子 ===== */
+.project {
+  background-color: #c3cdff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s; /* 平滑動畫 */
+}
+
+/* ===== 圖片固定正方形 ===== */
+.project img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* 裁切並填滿正方形 */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s, box-shadow 0.3s; /* 平滑動畫 */
+}
+
+/* ===== 滑鼠移入放大效果 ===== */
+.project:hover {
+  transform: translateY(-5px); /* 卡片稍微浮起 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project:hover img {
+  transform: scale(1.1); /* 圖片放大 10% */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* 讓 project 可以放 icon 在上面 */
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+/* icon 遮罩層 */
+.icons {
+  position: absolute;
+  inset: 0; /* 上下左右都 0 */
+  background: rgba(58, 41, 121, 0.66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* 滑鼠移到卡片才顯示 icon */
+.project:hover .icons {
+  opacity: 1;
+}
+
+/* icon 本身 */
+.icons img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s;
+}
+
+/* icon hover 放大 */
+.icons img:hover {
+  transform: scale(1.2);
+}
